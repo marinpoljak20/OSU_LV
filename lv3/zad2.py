@@ -36,6 +36,12 @@ plt.title("Counts")
 grouped_data = data.groupby("Fuel Type")['Fuel Type'].count()
 grouped_data.plot.bar()
 
+plt.bar(prezivjeli_po_spolu.index, prezivjeli_po_spolu.values, color=['yellow', 'green'])
+plt.xlabel('Spol')
+plt.ylabel('Postotak preživjelih')
+plt.title('Postotak preživjelih po spolu')
+plt.show()
+
 # pod e)
 plt.figure()
 plt.title("CO2 prema broju cilindara")
