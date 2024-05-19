@@ -14,10 +14,18 @@ plt.figure()
 data['Fuel Consumption City (L/100km)'].plot(kind ='hist', bins=20)
 
 # pod b)
+#1. nacin
 data.plot.scatter(x='Fuel Consumption City (L/100km)',
                   y='CO2 Emissions (g/km)',
                   c='Fuel Type',
                   cmap ="nipy_spectral")
+
+#2. nacin
+plt.scatter(x=data['Fuel Consumption City (L/100km)'], y=data['CO2 Emissions (g/km)'])
+plt.title('Odnos')
+plt.xlabel('Fuel Consumption City (L/100km)')
+plt.ylabel('CO2 Emissions (g/km)')
+plt.show()
 
 # pod c)
 data.plot.box(column='Fuel Consumption Hwy (L/100km)', by="Fuel Type")
