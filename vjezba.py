@@ -9,45 +9,10 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import load_model
  
-# Učitavanje podataka
-titanic_df = pd.read_csv('titanic.csv')
- 
-# a) Broj žena u skupu podataka
-broj_zena = titanic_df[titanic_df['Sex'] == 'female'].shape[0]
-print(f'a) Broj žena u skupu podataka: {broj_zena}')
- 
-# b) Postotak osoba koje nisu preživjele potonuće broda
-postotak_ne_prezivjelih = (1 - titanic_df['Survived'].mean()) * 100
-print(f'b) Postotak osoba koje nisu preživjele potonuće broda: {postotak_ne_prezivjelih:.2f}%')
- 
-# c) Stupčasti dijagram postotka preživjelih muškaraca i žena
-prezivjeli_po_spolu = titanic_df.groupby('Sex')['Survived'].mean() * 100
- 
-plt.bar(prezivjeli_po_spolu.index, prezivjeli_po_spolu.values, color=['yellow', 'green'])
-plt.xlabel('Spol')
-plt.ylabel('Postotak preživjelih')
-plt.title('Postotak preživjelih po spolu')
-plt.show()
- 
-# d) Prosječna dob preživjelih žena i muškaraca
-prosjecna_dob_prezivjelih_zena = titanic_df[titanic_df['Sex'] == 'female'][titanic_df['Survived'] == 1]['Age'].mean()
-prosjecna_dob_prezivjelih_muskaraca = titanic_df[titanic_df['Sex'] == 'male'][titanic_df['Survived'] == 1]['Age'].mean()
- 
-print(f'd) Prosječna dob preživjelih žena: {prosjecna_dob_prezivjelih_zena:.2f} godina')
-print(f'   Prosječna dob preživjelih muškaraca: {prosjecna_dob_prezivjelih_muskaraca:.2f} godina')
- 
-# e) Najstariji preživjeli muškarac po klasi
-najstariji_prezivjeli_muškarac_po_klasi = titanic_df[titanic_df['Sex'] == 'male'][titanic_df['Survived'] == 1].groupby('Pclass')['Age'].max()
-print('Najstariji preživjeli muškarac po klasi:')
-print(najstariji_prezivjeli_muškarac_po_klasi)
-
 
 
 
  
-
-
-
 
 import numpy as np
 import pandas as pd
